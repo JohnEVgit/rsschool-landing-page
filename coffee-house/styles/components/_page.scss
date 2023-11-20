@@ -1,0 +1,9 @@
+.page {
+    scroll-behavior: smooth;
+
+    &__body {
+        font-family: InterVariable, sans-serif;
+        background-color: var(--background-body);
+        color: var(--text-dark);
+    }
+}
