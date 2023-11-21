@@ -1,17 +1,17 @@
 <!doctype html>
 <html class="page" lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1440, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440, initial-scale=1.0">
     <title>Coffee House</title>
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml"/>
-    <link href="styles/main.css" rel="stylesheet"/>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link href="styles/main.css" rel="stylesheet">
   </head>
   <body class="page__body">
     <header class="page__header header">
       <a class="header__logo header-logo" href="#" aria-label="Home">
         <svg class="header-logo__icon" width="100" height="60" aria-hidden="true">
-          <use href="images/sprite.svg#logo"></use>
+          <use href="images/sprite.svg#logo" />
         </svg>
       </a>
 
@@ -33,7 +33,7 @@
           <li class="header-nav__item">
             <a class="header-nav__link" href="#">Menu
               <svg class="header-nav__icon" width="20" height="20" aria-hidden="true">
-                <use href="images/sprite.svg#coffee-cup"></use>
+                <use href="images/sprite.svg#coffee-cup" />
               </svg>
             </a>
           </li>
@@ -47,17 +47,82 @@
           <source srcset="images/hero/img-hero.avif" type="image/avif">
           <source srcset="images/hero/img-hero.webp" type="image/webp">
           <img class="hero__media" src="images/hero/img-hero.jpg" alt="Enjoy premium coffee at our charming cafe" width="1360" height="644">
-         </picture>
-         <div class="hero__info">
-            <h1 class="hero__title">
-              <i class="hero__title--highlight">Enjoy</i> premium coffee at our charming cafe</h1>
-            <p class="hero__text">With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
-            <a class="hero__button button button--theme-accent" href="#">Menu
-              <svg class="button__icon" width="20" height="20" aria-hidden="true">
-                <use href="images/sprite.svg#coffee-cup"></use>
-              </svg>
-            </a>
-         </div>
+        </picture>
+        <div class="hero__info">
+          <h1 class="hero__title">
+            <i class="hero__title--highlight">Enjoy</i> premium coffee at our charming cafe</h1>
+          <p class="hero__text">With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
+          <a class="hero__button button button--theme-accent" href="#">Menu
+            <svg class="button__icon" width="20" height="20" aria-hidden="true">
+              <use href="images/sprite.svg#coffee-cup" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="page__slider slider">
+        <h2 class="slider__title">Choose your <i class="slider__title--highlight">favorite</i> coffee</h2>
+        <div class="slider__wrapper">
+          <div class="slider__inner">
+
+            <div class="slider__slides">
+              <div class="slider__slide slider-slide">
+                <picture>
+                  <source srcset="images/slider/coffee-slider-1.avif 1x, images/slider/coffee-slider-1-2x.avif 2x" type="image/avif">
+                  <source srcset="images/slider/coffee-slider-1.webp 1x, images/slider/coffee-slider-1-2x.webp 2x" type="image/webp">
+                  <img class="slider-slide__img" src="images/slider/coffee-slider-1.png" alt="S’mores Frappuccino" width="480" height="480"
+                    srcset="images/slider/coffee-slider-1.png 1x, images/slider/coffee-slider-1-2x.png 2x">
+                </picture>
+                <h3 class="slider-slide__title">S’mores Frappuccino</h3>
+                <p class="slider-slide__description">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+                <p class="slider-slide__price">$5.50</p>
+              </div>
+
+              <div class="slider__slide slider-slide">
+                <picture>
+                  <source srcset="images/slider/coffee-slider-2.avif 1x, images/slider/coffee-slider-2-2x.avif 2x" type="image/avif">
+                  <source srcset="images/slider/coffee-slider-2.webp 1x, images/slider/coffee-slider-2-2x.webp 2x" type="image/webp">
+                  <img class="slider-slide__img" src="images/slider/coffee-slider-1.png" alt="Caramel Macchiato" width="480" height="480"
+                    srcset="images/slider/coffee-slider-2.png 1x, images/slider/coffee-slider-2-2x.png 2x">
+                </picture>
+                <h3 class="slider-slide__title">Caramel Macchiato</h3>
+                <p class="slider-slide__description">Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under whipped thick foam.</p>
+                <p class="slider-slide__price">$5.00</p>
+              </div>
+
+              <div class="slider__slide slider-slide">
+                <picture>
+                  <source srcset="images/slider/coffee-slider-3.avif 1x, images/slider/coffee-slider-3-2x.avif 2x" type="image/avif">
+                  <source srcset="images/slider/coffee-slider-3.webp 1x, images/slider/coffee-slider-3-2x.webp 2x" type="image/webp">
+                  <img class="slider-slide__img" src="images/slider/coffee-slider-1.png" alt="Ice coffee" width="480" height="480"
+                    srcset="images/slider/coffee-slider-3.png 1x, images/slider/coffee-slider-3-2x.png 2x">
+                </picture>
+                <h3 class="slider-slide__title">Ice coffee</h3>
+                <p class="slider-slide__description">A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.</p>
+                <p class="slider-slide__price">$4.50</p>
+              </div>
+            </div>
+
+            <div class="slider__controls">
+              <button class="slider__button slider__button--prev button button--theme-icon-dark" type="button" title="Previous slide">
+                <svg class="button__icon" width="24" height="24" aria-hidden="true">
+                  <use href="images/sprite.svg#arrow-left" />
+                </svg>
+              </button>
+              <button class="slider__button slider__button--next button button--theme-icon-dark" type="button" title="Next slide">
+                <svg class="button__icon" width="24" height="24" aria-hidden="true">
+                  <use href="images/sprite.svg#arrow-right" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="slider__pagination">
+            <span class="slider__page slider__page--is-active"></span>
+            <span class="slider__page"></span>
+            <span class="slider__page"></span>
+          </div>
+        </div>
       </section>
     </main>
 

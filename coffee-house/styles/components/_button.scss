@@ -32,4 +32,31 @@
             }
         }
     }
+
+    &--theme-icon-dark,
+    &--theme-icon-light {
+        width: 60px;
+        height: 60px;
+        background-color: transparent;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    &--theme-icon-dark {
+        border: 1px solid var(--border-dark);
+
+        &:hover {
+            background-color: var(--background-container);
+            color: var(--text-light);
+        }
+    }
+    
+    &--theme-icon-light {
+        border: 1px solid var(--border-light);
+        color: var(--text-light);
+
+        &:hover {
+            background-color: var(--background-body);
+            color: var(--text-dark);
+        }
+    }
 }
