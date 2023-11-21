@@ -2,8 +2,24 @@
     scroll-behavior: smooth;
 
     &__body {
+        min-width: 1440px;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         font-family: InterVariable, sans-serif;
         background-color: var(--background-body);
         color: var(--text-dark);
+    }
+
+    &__header,
+    &__main,
+    &__footer {
+        width: 100%;
+        max-width: 1360px;
+    }
+
+    &__footer {
+        margin-top: auto;
     }
 }
