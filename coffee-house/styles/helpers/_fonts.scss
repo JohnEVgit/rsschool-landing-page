@@ -1,14 +1,26 @@
 @font-face {
-    font-family: InterVariable;
+    font-family: 'Inter';
+    src: url('../fonts/Inter-SemiBold.woff2') format('woff2'),
+        url('../fonts/Inter-SemiBold.woff') format('woff');
+    font-weight: 600;
     font-style: normal;
-    font-weight: 100 900;
     font-display: swap;
-    src: local("Inter Variable Text"), url('../fonts/InterVariable.woff2') format('woff2');
 }
+
 @font-face {
-    font-family: InterVariable;
+    font-family: 'Inter';
+    src: url('../fonts/Inter-SemiBoldItalic.woff2') format('woff2'),
+        url('../fonts/Inter-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
     font-style: italic;
-    font-weight: 100 900;
     font-display: swap;
-    src: local("Inter Variable Text"), url('../fonts/InterVariable-Italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.woff2') format('woff2'),
+        url('../fonts/Inter-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }

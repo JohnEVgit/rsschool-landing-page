@@ -1,0 +1,44 @@
+.hero {
+    padding: 100px;
+    border-radius: 40px;
+    position: relative;
+    
+    &__media {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 40px;
+        object-fit: cover;
+    }
+
+    &__info {
+        max-width: 530px;
+        position: relative;
+        color: var(--text-light);
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 40px;
+        font-size: 72px;
+        font-weight: 600;
+        line-height: 76px;
+
+        &--highlight {
+            color: var(--text-accent);
+            font-style: italic;
+        }
+    }
+
+    &__text {
+        margin-top: 0;
+        margin-bottom: 40px;
+        line-height: 24px;
+    }
+
+    &__button {
+        min-width: 200px;
+    }
+}

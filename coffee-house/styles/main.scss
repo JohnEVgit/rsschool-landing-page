@@ -1,5 +1,9 @@
 @use 'helpers/normalize';
 @use 'helpers/variables';
+@use 'helpers/fonts';
+@use 'helpers/common';
 
 @use 'components/page';
+@use 'components/button';
 @use 'components/header';
+@use 'components/hero';
