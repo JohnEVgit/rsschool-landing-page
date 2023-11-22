@@ -503,11 +503,13 @@ template {
   width: 0;
   margin-right: auto;
   margin-left: auto;
-  background-color: var(--text-dark);
-  transition: width 0.2s;
+  background-color: currentColor;
+  transition: width 0.2s, opacity 0.2s;
+  opacity: 0;
 }
 .header-nav__link:hover::after, .header-nav__link--is-active::after {
   width: 100%;
+  opacity: 1;
 }
 .header-nav__icon {
   vertical-align: top;
@@ -683,7 +685,7 @@ template {
   gap: 100px;
 }
 .apps__info {
-  flex-grow: 1;
+  flex-basis: 50%;
 }
 .apps__title {
   margin-top: 0;
@@ -701,7 +703,7 @@ template {
   line-height: 24px;
 }
 .apps__buttons {
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   display: flex;
   gap: 20px;
 }
@@ -709,5 +711,89 @@ template {
   min-width: 200px;
 }
 .apps__picture {
-  flex-grow: 1;
+  flex-basis: 50%;
+}
+.apps__img {
+  display: block;
+}
+
+.footer {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.footer__wrapper {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  gap: 100px;
+  border-radius: 40px;
+  background-color: var(--background-container);
+  color: var(--text-light);
+}
+.footer__col {
+  flex-basis: 50%;
+}
+.footer__title {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 75px;
+}
+.footer__title--highlight {
+  color: var(--text-accent);
+}
+.footer__socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-contacts__title {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.footer-contacts__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.footer-contacts__link, .footer-contacts__text {
+  display: flex;
+  padding-bottom: 4px;
+  gap: 8px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.footer-contacts__link {
+  position: relative;
+  color: currentColor;
+  text-decoration: none;
+}
+.footer-contacts__link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: currentColor;
+  transition: width 0.2s, opacity 0.2s;
+  opacity: 0;
+}
+.footer-contacts__link:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+.footer-contacts__text {
+  margin-top: 0;
+  margin-bottom: 0;
 }/*# sourceMappingURL=main.css.map */

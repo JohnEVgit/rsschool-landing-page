@@ -56,13 +56,15 @@
             width: 0;
             margin-right: auto;
             margin-left: auto;
-            background-color: var(--text-dark);
-            transition: width 0.2s;
+            background-color: currentColor;
+            transition: width 0.2s, opacity 0.2s;
+            opacity: 0;
         }
 
         &:hover::after,
         &--is-active::after {
             width: 100%;
+            opacity: 1;
         }
     }
 
