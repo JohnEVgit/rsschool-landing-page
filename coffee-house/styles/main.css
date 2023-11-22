@@ -368,7 +368,7 @@ template {
   padding-right: 40px;
   padding-left: 40px;
 }
-.page__hero, .page__slider, .page__about {
+.page__hero, .page__slider, .page__about, .page__apps {
   margin-bottom: 100px;
 }
 .page__footer {
@@ -424,6 +424,34 @@ template {
 .button--theme-icon-light:hover {
   background-color: var(--background-body);
   color: var(--text-dark);
+}
+.button--theme-apps {
+  justify-content: flex-start;
+  gap: 8px;
+  min-height: 64px;
+  padding: 11px 19px;
+  background-color: var(--background-body);
+  border: 1px solid var(--border-dark);
+  text-align: left;
+  transition: background-color 0.2s, color 0.2s;
+}
+.button--theme-apps .button__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.button--theme-apps .button__title {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 14px;
+}
+.button--theme-apps .button__text {
+  font-weight: 600;
+  line-height: 24px;
+}
+.button--theme-apps:hover {
+  background-color: var(--background-container);
+  color: var(--text-light);
 }
 
 .header {
@@ -647,4 +675,39 @@ template {
 }
 .about__img:hover {
   transform: scale(1);
+}
+
+.apps {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+.apps__info {
+  flex-grow: 1;
+}
+.apps__title {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 75px;
+}
+.apps__title--highlight {
+  color: var(--text-accent);
+}
+.apps__text {
+  margin-top: 0;
+  margin-bottom: 40px;
+  line-height: 24px;
+}
+.apps__buttons {
+  margin-bottom: 2px;
+  display: flex;
+  gap: 20px;
+}
+.apps__button {
+  min-width: 200px;
+}
+.apps__picture {
+  flex-grow: 1;
 }/*# sourceMappingURL=main.css.map */

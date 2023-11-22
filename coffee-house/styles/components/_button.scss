@@ -59,4 +59,39 @@
             color: var(--text-dark);
         }
     }
+
+    &--theme-apps {
+        justify-content: flex-start;
+        gap: 8px;
+        min-height: 64px;
+        padding: 11px 19px;
+        background-color: var(--background-body);
+        border: 1px solid var(--border-dark);
+        text-align: left;
+        transition: background-color 0.2s, color 0.2s;
+
+        #{$self} {
+            &__info {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            &__title {
+                font-size: 10px;
+                font-weight: 600;
+                line-height: 14px;
+            }
+
+            &__text {
+                font-weight: 600;
+                line-height: 24px;
+            }
+        }
+
+        &:hover {
+            background-color: var(--background-container);
+            color: var(--text-light);
+        }
+    }
 }

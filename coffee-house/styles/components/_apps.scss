@@ -1,0 +1,41 @@
+.apps {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+
+    &__info {
+        flex-grow: 1;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 40px;
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 75px;
+
+        &--highlight {
+            color: var(--text-accent);
+        }
+    }
+
+    &__text {
+        margin-top: 0;
+        margin-bottom: 40px;
+        line-height: 24px;
+    }
+
+    &__buttons {
+        margin-bottom: 2px;
+        display: flex;
+        gap: 20px;
+    }
+
+    &__button {
+        min-width: 200px;
+    }
+
+    &__picture {
+        flex-grow: 1;
+    }
+}
