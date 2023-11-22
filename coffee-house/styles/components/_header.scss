@@ -37,18 +37,32 @@
     }
 
     &__link {
-        display: inline-block;
+        position: relative;
+        display: flex;
+        padding-bottom: 4px;
+        gap: 8px;
         color: var(--text-dark);
         text-decoration: none;
         font-weight: 600;
         line-height: 24px;
-        padding-bottom: 2px;
-        border-bottom: 2px solid transparent;
-        transition: border-bottom-color 0.2s;
 
-        &:hover,
-        &--is-active {
-            border-bottom-color: var(--text-dark);
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: var(--text-dark);
+            transition: width 0.2s;
+        }
+
+        &:hover::after,
+        &--is-active::after {
+            width: 100%;
         }
     }
 

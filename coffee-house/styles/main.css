@@ -368,7 +368,7 @@ template {
   padding-right: 40px;
   padding-left: 40px;
 }
-.page__hero {
+.page__hero, .page__slider, .page__about {
   margin-bottom: 100px;
 }
 .page__footer {
@@ -456,17 +456,30 @@ template {
   margin-left: auto;
 }
 .header-nav__link {
-  display: inline-block;
+  position: relative;
+  display: flex;
+  padding-bottom: 4px;
+  gap: 8px;
   color: var(--text-dark);
   text-decoration: none;
   font-weight: 600;
   line-height: 24px;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom-color 0.2s;
 }
-.header-nav__link:hover, .header-nav__link--is-active {
-  border-bottom-color: var(--text-dark);
+.header-nav__link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: var(--text-dark);
+  transition: width 0.2s;
+}
+.header-nav__link:hover::after, .header-nav__link--is-active::after {
+  width: 100%;
 }
 .header-nav__icon {
   vertical-align: top;
@@ -543,10 +556,10 @@ template {
   transform: translateY(-50%);
 }
 .slider__button--prev {
-  left: 0;
+  left: 4px;
 }
 .slider__button--next {
-  right: 0;
+  right: 4px;
 }
 .slider__pagination {
   margin-top: 40px;
@@ -585,4 +598,53 @@ template {
 }
 .slider-slide__price {
   margin-bottom: 0;
+}
+
+.about__title {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 75px;
+}
+.about__title--highlight {
+  color: var(--text-accent);
+}
+.about__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+}
+.about__picture {
+  overflow: hidden;
+  border-radius: 20px;
+}
+.about__picture:nth-child(4n-3) {
+  grid-row: 1/3;
+  aspect-ratio: 660/590;
+}
+.about__picture:nth-child(4n-2) {
+  grid-row: 3/4;
+  aspect-ratio: 660/430;
+}
+.about__picture:nth-child(4n-1) {
+  grid-row: 1/2;
+  aspect-ratio: 660/430;
+}
+.about__picture:nth-child(4n) {
+  grid-row: 2/4;
+  aspect-ratio: 660/590;
+}
+.about__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+.about__img:hover {
+  transform: scale(1);
 }/*# sourceMappingURL=main.css.map */
