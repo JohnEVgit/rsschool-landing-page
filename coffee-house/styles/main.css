@@ -804,8 +804,74 @@ template {
   margin-top: 0;
   margin-bottom: 40px;
   list-style: none;
+}
+.menu__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.menu__item {
+  position: relative;
+  flex-basis: calc(25% - 30px);
+}
+
+.menu-item {
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid var(--border-light);
+  pointer-events: none;
+  border-radius: 40px;
+}
+.menu-item__picture {
+  display: block;
+  border-radius: 40px;
+  overflow: hidden;
+}
+.menu-item__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+.menu-item__info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 12px;
+  flex-grow: 1;
+}
+.menu-item__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 24px;
   font-weight: 600;
+  line-height: 30px;
+}
+.menu-item__text {
+  margin-top: 0;
+  margin-bottom: 0;
   line-height: 24px;
+}
+.menu-item__price {
+  margin-top: auto;
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.menu-item:hover .menu-item__img {
+  transform: scale(1);
 }
 
 .footer {
