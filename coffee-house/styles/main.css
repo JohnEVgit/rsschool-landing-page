@@ -347,6 +347,33 @@ template {
   box-sizing: border-box;
 }
 
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .page {
   scroll-behavior: smooth;
 }
@@ -368,11 +395,26 @@ template {
   padding-right: 40px;
   padding-left: 40px;
 }
-.page__hero, .page__slider, .page__about, .page__apps {
+.page__hero, .page__slider, .page__about, .page__apps, .page__menu {
   margin-bottom: 100px;
 }
 .page__footer {
   margin-top: auto;
+}
+
+.title {
+  font-weight: 600;
+}
+.title--size-l {
+  font-size: 72px;
+  line-height: 76px;
+}
+.title--size-m {
+  font-size: 60px;
+  line-height: 75px;
+}
+.title--highlight {
+  color: var(--text-accent);
 }
 
 .button {
@@ -452,6 +494,61 @@ template {
 .button--theme-apps:hover {
   background-color: var(--background-container);
   color: var(--text-light);
+}
+
+.tab__input:checked + .tab__label, .tab__label:hover {
+  background-color: var(--background-container);
+  color: var(--text-light);
+}
+.tab__input:checked + .tab__label::before, .tab__label:hover::before {
+  background-color: var(--background-body);
+  color: var(--text-dark);
+}
+.tab__input:not(:checked) + .tab__label {
+  cursor: pointer;
+}
+.tab__input:focus-visible + .tab__label {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+.tab__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px 7px 7px;
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  font-weight: 600;
+  line-height: 24px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.tab__label::before {
+  content: attr(data-tab);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+  background-color: var(--border-light);
+  color: var(--text-dark);
+}
+.tab__label--icon-coffee::before, .tab__label--icon-tea::before, .tab__label--icon-dessert::before {
+  background-image: url("../images/tabs/menu-sprite.png");
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  .tab__label--icon-coffee::before, .tab__label--icon-tea::before, .tab__label--icon-dessert::before {
+    background-image: url("../images/tabs/menu-sprite-2x.png");
+    background-size: auto 30px;
+  }
+}
+.tab__label--icon-tea::before {
+  background-position: -30px 0;
+}
+.tab__label--icon-dessert::before {
+  background-position: -60px 0;
 }
 
 .header {
@@ -538,12 +635,6 @@ template {
 .hero__title {
   margin-top: 0;
   margin-bottom: 40px;
-  font-size: 72px;
-  font-weight: 600;
-  line-height: 76px;
-}
-.hero__title--highlight {
-  color: var(--text-accent);
 }
 .hero__text {
   margin-top: 0;
@@ -560,12 +651,6 @@ template {
 .slider__title {
   margin-top: 0;
   margin-bottom: 40px;
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 75px;
-}
-.slider__title--highlight {
-  color: var(--text-accent);
 }
 .slider__inner {
   position: relative;
@@ -633,12 +718,6 @@ template {
 .about__title {
   margin-top: 0;
   margin-bottom: 40px;
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 75px;
-}
-.about__title--highlight {
-  color: var(--text-accent);
 }
 .about__gallery {
   display: grid;
@@ -690,12 +769,6 @@ template {
 .apps__title {
   margin-top: 0;
   margin-bottom: 40px;
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 75px;
-}
-.apps__title--highlight {
-  color: var(--text-accent);
 }
 .apps__text {
   margin-top: 0;
@@ -715,6 +788,24 @@ template {
 }
 .apps__img {
   display: block;
+}
+
+.menu__title {
+  margin: 0 auto 40px;
+  max-width: 800px;
+  text-align: center;
+}
+.menu__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 40px;
+  list-style: none;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .footer {
@@ -738,12 +829,6 @@ template {
 .footer__title {
   margin-top: 0;
   margin-bottom: 40px;
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 75px;
-}
-.footer__title--highlight {
-  color: var(--text-accent);
 }
 .footer__socials {
   display: flex;
