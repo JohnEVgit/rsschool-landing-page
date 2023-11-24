@@ -787,6 +787,8 @@ template {
   flex-basis: 50%;
 }
 .apps__img {
+  width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -843,6 +845,7 @@ template {
   height: auto;
   transform: scale(1.1);
   transition: transform 0.2s;
+  border-radius: 40px;
 }
 .menu-item__info {
   display: flex;
@@ -850,6 +853,8 @@ template {
   padding: 20px;
   gap: 12px;
   flex-grow: 1;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
 }
 .menu-item__title {
   margin-top: 0;
