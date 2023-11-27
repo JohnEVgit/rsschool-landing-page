@@ -94,7 +94,9 @@
         line-height: 30px;
     }
 
-    &:hover #{$self}__img {
-        transform: scale(1);
+    @media (hover: hover) {
+        &:hover #{$self}__img {
+            transform: scale(1);
+        }
     }
 }

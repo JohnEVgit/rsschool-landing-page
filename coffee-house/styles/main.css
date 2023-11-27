@@ -440,16 +440,22 @@ template {
   background-color: var(--background-body);
 }
 .button--theme-accent .button__icon {
-  margin-left: 0;
-  width: 0;
-  opacity: 0;
-  transition: opacity 0.2s, width 0.2s 0.2s, margin-left 0.2s 0.2s;
-}
-.button--theme-accent:hover .button__icon {
   margin-left: 8px;
   width: 20px;
-  opacity: 1;
-  transition: opacity 0.2s 0.2s, width 0.2s, margin-left 0.2s;
+}
+@media (hover: hover) {
+  .button--theme-accent .button__icon {
+    margin-left: 0;
+    width: 0;
+    opacity: 0;
+    transition: opacity 0.2s, width 0.2s 0.2s, margin-left 0.2s 0.2s;
+  }
+  .button--theme-accent:hover .button__icon {
+    margin-left: 8px;
+    width: 20px;
+    opacity: 1;
+    transition: opacity 0.2s 0.2s, width 0.2s, margin-left 0.2s;
+  }
 }
 .button--theme-icon-dark, .button--theme-icon-light {
   width: var(--theme-icon-button-size);
@@ -460,17 +466,21 @@ template {
 .button--theme-icon-dark {
   border: 1px solid var(--border-dark);
 }
-.button--theme-icon-dark:hover {
-  background-color: var(--background-container);
-  color: var(--text-light);
+@media (hover: hover) {
+  .button--theme-icon-dark:hover {
+    background-color: var(--background-container);
+    color: var(--text-light);
+  }
 }
 .button--theme-icon-light {
   border: 1px solid var(--border-light);
   color: var(--text-light);
 }
-.button--theme-icon-light:hover {
-  background-color: var(--background-body);
-  color: var(--text-dark);
+@media (hover: hover) {
+  .button--theme-icon-light:hover {
+    background-color: var(--background-body);
+    color: var(--text-dark);
+  }
 }
 .button--theme-apps {
   justify-content: flex-start;
@@ -496,18 +506,30 @@ template {
   font-weight: 600;
   line-height: 24px;
 }
-.button--theme-apps:hover {
-  background-color: var(--background-container);
-  color: var(--text-light);
+@media (hover: hover) {
+  .button--theme-apps:hover {
+    background-color: var(--background-container);
+    color: var(--text-light);
+  }
 }
 
-.tab__input:checked + .tab__label, .tab__label:hover {
+.tab__input:checked + .tab__label {
   background-color: var(--background-container);
   color: var(--text-light);
 }
-.tab__input:checked + .tab__label::before, .tab__label:hover::before {
+.tab__input:checked + .tab__label::before {
   background-color: var(--background-body);
   color: var(--text-dark);
+}
+@media (hover: hover) {
+  .tab__label:hover {
+    background-color: var(--background-container);
+    color: var(--text-light);
+  }
+  .tab__label:hover::before {
+    background-color: var(--background-body);
+    color: var(--text-dark);
+  }
 }
 .tab__input:not(:checked) + .tab__label {
   cursor: pointer;
@@ -634,6 +656,11 @@ template {
     overflow: auto;
   }
 }
+@media (max-width: 768px) and (hover: hover) {
+  .header-nav__list {
+    gap: 56px;
+  }
+}
 .header-nav__list--is-active {
   transform: translateX(-100%);
 }
@@ -665,9 +692,13 @@ template {
 @media (max-width: 768px) {
   .header-nav__link {
     gap: 16px;
-    padding-bottom: 0;
     font-size: 32px;
     line-height: 40px;
+  }
+}
+@media (max-width: 768px) and (hover: none) {
+  .header-nav__link {
+    padding-bottom: 0;
   }
   .header-nav__link::after {
     display: none;
@@ -687,9 +718,15 @@ template {
   transition: width 0.2s, opacity 0.2s;
   opacity: 0;
 }
-.header-nav__link:hover::after, .header-nav__link--is-active::after {
+.header-nav__link--is-active::after {
   width: 100%;
   opacity: 1;
+}
+@media (hover: hover) {
+  .header-nav__link:hover::after {
+    width: 100%;
+    opacity: 1;
+  }
 }
 .header-nav__icon {
   vertical-align: top;
@@ -1005,8 +1042,10 @@ template {
   font-weight: 600;
   line-height: 30px;
 }
-.menu-item:hover .menu-item__img {
-  transform: scale(1);
+@media (hover: hover) {
+  .menu-item:hover .menu-item__img {
+    transform: scale(1);
+  }
 }
 
 .footer {
@@ -1083,9 +1122,11 @@ template {
   transition: width 0.2s, opacity 0.2s;
   opacity: 0;
 }
-.footer-contacts__link:hover::after {
-  width: 100%;
-  opacity: 1;
+@media (hover: hover) {
+  .footer-contacts__link:hover::after {
+    width: 100%;
+    opacity: 1;
+  }
 }
 .footer-contacts__text {
   margin-top: 0;

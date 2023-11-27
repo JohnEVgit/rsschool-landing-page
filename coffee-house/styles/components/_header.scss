@@ -73,6 +73,10 @@
             transition: transform 0.3s;
             box-sizing: border-box;
             overflow: auto;
+
+            @media (hover: hover) {
+                gap: 56px;
+            }
         }
 
         &--is-active {
@@ -113,12 +117,15 @@
 
         @media (max-width: 768px) {
             gap: 16px;
-            padding-bottom: 0;
             font-size: 32px;
             line-height: 40px;
 
-            &::after {
-                display: none;
+            @media (hover: none) {
+                padding-bottom: 0;
+
+                &::after {
+                    display: none;
+                }
             }
         }
 
@@ -137,10 +144,16 @@
             opacity: 0;
         }
 
-        &:hover::after,
         &--is-active::after {
             width: 100%;
             opacity: 1;
+        }
+
+        @media (hover: hover) {
+            &:hover::after {
+                width: 100%;
+                opacity: 1;
+            }
         }
     }
 

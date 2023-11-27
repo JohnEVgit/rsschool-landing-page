@@ -1,14 +1,25 @@
 .tab {
     $self: &;
 
-    &__input:checked + #{$self}__label,
-    &__label:hover {
+    &__input:checked + #{$self}__label {
         background-color: var(--background-container);
         color: var(--text-light);
 
         &::before {
             background-color: var(--background-body);
             color: var(--text-dark);
+        }
+    }
+
+    @media (hover: hover) {
+        &__label:hover {
+            background-color: var(--background-container);
+            color: var(--text-light);
+    
+            &::before {
+                background-color: var(--background-body);
+                color: var(--text-dark);
+            }
         }
     }
 
