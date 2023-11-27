@@ -5,6 +5,10 @@
     padding: 20px 40px;
     gap: 40px;
 
+    @media (max-width: variables.$lg) {
+        gap: 36px;
+    }
+
     &__nav {
         flex-grow: 1;
     }
@@ -24,6 +28,10 @@
         margin-bottom: 0;
         list-style: none;
         gap: 40px;
+
+        @media (max-width: variables.$lg) {
+            gap: 36px;
+        }
     }
 
     &__item {

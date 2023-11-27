@@ -378,7 +378,6 @@ template {
   scroll-behavior: smooth;
 }
 .page__body {
-  min-width: 1440px;
   height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -557,6 +556,12 @@ template {
   align-items: center;
   padding: 20px 40px;
   gap: 40px;
+  width: 1024px;
+}
+@media (max-width: 1024px) {
+  .header {
+    gap: 36px;
+  }
 }
 .header__nav {
   flex-grow: 1;
@@ -573,6 +578,11 @@ template {
   margin-bottom: 0;
   list-style: none;
   gap: 40px;
+}
+@media (max-width: 1024px) {
+  .header-nav__list {
+    gap: 36px;
+  }
 }
 .header-nav__item:first-child {
   margin-left: auto;
