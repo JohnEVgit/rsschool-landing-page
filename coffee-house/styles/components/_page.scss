@@ -21,6 +21,11 @@
     &__main {
         padding-right: 40px;
         padding-left: 40px;
+
+        @media (max-width: 767px) {
+            padding-right: 16px;
+            padding-left: 16px;
+        }
     }
 
     &__hero,

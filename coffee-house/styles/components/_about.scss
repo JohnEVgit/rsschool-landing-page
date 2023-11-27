@@ -64,8 +64,14 @@
             transform: scale(1.055);
         }
 
-        &:hover {
-            transform: scale(1);
+        @media (max-width: 768px) {
+            transform: scale(1.23);
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                transform: scale(1);
+            }
         }
     }
 }

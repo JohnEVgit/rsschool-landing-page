@@ -4,11 +4,21 @@
     &--size-l {
         font-size: 72px;
         line-height: 76px;
+
+        @media (max-width: 767px) {
+            font-size: 42px;
+            line-height: 48px;
+        }
     }
 
     &--size-m {
         font-size: 60px;
         line-height: 75px;
+        
+        @media (max-width: 767px) {
+            font-size: 32px;
+            line-height: 40px;
+        }
     }
 
     &--highlight {

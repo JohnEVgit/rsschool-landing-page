@@ -7,6 +7,10 @@
         flex-direction: column;
     }
 
+    @media (max-width: 767px) {
+        gap: 40px;
+    }  
+
     &__info {
         flex-basis: 50%;
     }
@@ -25,6 +29,7 @@
     &__buttons {
         margin-bottom: 1px;
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
     }
 
