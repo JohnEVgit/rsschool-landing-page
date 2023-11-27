@@ -3,6 +3,10 @@
     align-items: center;
     gap: 100px;
 
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    }
+
     &__info {
         flex-basis: 50%;
     }

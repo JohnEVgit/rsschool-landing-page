@@ -8,6 +8,11 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 40px;
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     &__picture {
@@ -33,6 +38,17 @@
             grid-row: 2 / 4;
             aspect-ratio: 660 / 590;
         }
+
+        @media (max-width: 768px) {
+            &:nth-child(n) {
+                height: 590px;
+                aspect-ratio: auto;
+            }
+
+            &--hide-mobile {
+                display: none;
+            }
+        }
     }
 
     &__img {
@@ -43,6 +59,10 @@
         border-radius: 20px;
         transform: scale(1.1);
         transition: transform 0.2s;
+
+        @media (max-width: 768px) {
+            transform: scale(1.055);
+        }
 
         &:hover {
             transform: scale(1);

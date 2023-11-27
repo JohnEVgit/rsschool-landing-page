@@ -29,10 +29,18 @@
 
         &--prev {
             left: 4px;
+
+            @media (max-width: 1024px) {
+                left: 0;
+            }
         }
 
         &--next {
             right: 4px;
+
+            @media (max-width: 1024px) {
+                right: 0;
+            }
         }
     }
 

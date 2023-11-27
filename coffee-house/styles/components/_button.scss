@@ -11,6 +11,14 @@
     cursor: pointer;
     border: none;
 
+    &--size-s {
+        --theme-icon-button-size: 44px;
+    }
+
+    &--size-m {
+        --theme-icon-button-size: 60px;
+    }
+
     &--theme-accent {
         min-height: 64px;
         padding: 8px 24px;
@@ -35,8 +43,8 @@
 
     &--theme-icon-dark,
     &--theme-icon-light {
-        width: 60px;
-        height: 60px;
+        width: var(--theme-icon-button-size);
+        height: var(--theme-icon-button-size);
         background-color: transparent;
         transition: background-color 0.2s, color 0.2s;
     }

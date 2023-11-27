@@ -5,12 +5,30 @@
     padding: 20px 40px;
     gap: 40px;
 
-    @media (max-width: variables.$lg) {
+    @media (max-width: 1024px) {
         gap: 36px;
+    }
+
+    &__button {
+        display: none;
+
+        @media (max-width: 768px) {
+            display: inline-flex;
+        }
     }
 
     &__nav {
         flex-grow: 1;
+
+        @media (max-width: 768px) {
+            position: absolute;
+            top: 100px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            overflow: hidden;
+        }
     }
 }
 
@@ -21,7 +39,14 @@
 }
 
 .header-nav {
+    @media (max-width: 768px) {
+        visibility: hidden;
+        transition: visibility 0.3s;
+        transition-property: visibility;
+    }
+
     &__list {
+        left: 100%;
         display: flex;
         padding-left: 0;
         margin-top: 0;
@@ -29,8 +54,29 @@
         list-style: none;
         gap: 40px;
 
-        @media (max-width: variables.$lg) {
+        @media (max-width: 1024px) {
             gap: 36px;
+        }
+
+        @media (max-width: 768px) {
+            gap: 60px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            padding: 60px 40px;
+            background-color: var(--background-body);
+            transform: translateX(0);
+            transition: transform 0.3s;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+        &--is-active {
+            transform: translateX(-100%);
         }
     }
 
@@ -41,6 +87,17 @@
 
         &:last-child {
             margin-left: auto;
+        }
+
+        @media (max-width: 768px) {
+            &:first-child {
+                margin-left: 0;
+            }
+    
+            &:last-child {
+                margin-top: 40px;
+                margin-left: 0;
+            }
         }
     }
 
@@ -53,6 +110,17 @@
         text-decoration: none;
         font-weight: 600;
         line-height: 24px;
+
+        @media (max-width: 768px) {
+            gap: 16px;
+            padding-bottom: 0;
+            font-size: 32px;
+            line-height: 40px;
+
+            &::after {
+                display: none;
+            }
+        }
 
         &::after {
             content: '';
@@ -78,5 +146,10 @@
 
     &__icon {
         vertical-align: top;
+
+        @media (max-width: 768px) {
+            width: 40px;
+            height: 40px;
+        }
     }
 }
