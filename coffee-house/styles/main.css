@@ -738,6 +738,11 @@ html[data-theme=dark] {
     gap: 32px;
   }
 }
+@media (max-width: 800px) {
+  .header-nav__list {
+    gap: 32px;
+  }
+}
 @media (max-width: 768px) {
   .header-nav__list {
     gap: 60px;
