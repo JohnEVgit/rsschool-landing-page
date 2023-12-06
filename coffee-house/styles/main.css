@@ -909,6 +909,7 @@ html[data-theme=dark] {
   border-radius: 40px;
   -o-object-fit: cover;
      object-fit: cover;
+  background-color: var(--background-container);
 }
 .hero__info {
   max-width: 530px;
