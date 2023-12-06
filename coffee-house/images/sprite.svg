@@ -49,9 +49,6 @@
             <path d="M10 18.33a8.33 8.33 0 1 0 0-16.66 8.33 8.33 0 0 0 0 16.66Z"/>
         </g>
     </symbol>
-    <symbol id="burger" fill="none" viewBox="0 0 18 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 1h16M1 9h16"/>
-    </symbol>
     <symbol id="refresh" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M21.89 13.5a10 10 0 1 1-.72-5.5"/>
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 8h4.4a.6.6 0 0 0 .6-.6V3"/>

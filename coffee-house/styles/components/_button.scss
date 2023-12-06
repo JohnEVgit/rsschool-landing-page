@@ -115,4 +115,45 @@
             }
         }
     }
+
+    &--nav-toggle {
+        position: relative;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 2px;
+            background-color: currentColor;
+            transition: transform 0.3s, margin-top 0.3s;
+        }
+
+        &::before {
+            margin-top: -4px;
+        }
+
+        &::after {
+            margin-top: 4px;
+        }
+
+        &#{$self}--is-active {
+            &::before,
+            &::after {
+                margin-top: 0;
+            }
+    
+            &::before {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+    
+            &::after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+    }
 }

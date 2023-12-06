@@ -546,6 +546,36 @@ html[data-theme=dark] {
     color: var(--text-light);
   }
 }
+.button--nav-toggle {
+  position: relative;
+}
+.button--nav-toggle::before, .button--nav-toggle::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  background-color: currentColor;
+  transition: transform 0.3s, margin-top 0.3s;
+}
+.button--nav-toggle::before {
+  margin-top: -4px;
+}
+.button--nav-toggle::after {
+  margin-top: 4px;
+}
+.button--nav-toggle.button--is-active::before, .button--nav-toggle.button--is-active::after {
+  margin-top: 0;
+}
+.button--nav-toggle.button--is-active::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.button--nav-toggle.button--is-active::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 
 .tab__input:checked + .tab__label {
   background-color: var(--background-container);
