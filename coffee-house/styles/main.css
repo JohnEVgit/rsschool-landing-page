@@ -397,6 +397,11 @@ html[data-theme=dark] {
   background-color: var(--background-body);
   color: var(--text-dark);
 }
+@media (max-width: 768px) {
+  .page__body--is-fixed {
+    overflow: hidden;
+  }
+}
 .page__header, .page__main, .page__footer {
   width: 100%;
   max-width: 1440px;
@@ -721,6 +726,9 @@ html[data-theme=dark] {
     transition: visibility 0.3s;
     transition-property: visibility;
   }
+  .header-nav--is-active {
+    visibility: visible;
+  }
 }
 .header-nav__list {
   left: 100%;
@@ -766,8 +774,10 @@ html[data-theme=dark] {
     gap: 56px;
   }
 }
-.header-nav__list--is-active {
-  transform: translateX(-100%);
+@media (max-width: 768px) {
+  .header-nav__list--is-active {
+    transform: translateX(-100%);
+  }
 }
 .header-nav__item:first-child {
   margin-left: auto;

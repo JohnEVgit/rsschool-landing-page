@@ -120,6 +120,10 @@
         visibility: hidden;
         transition: visibility 0.3s;
         transition-property: visibility;
+
+        &--is-active {
+            visibility: visible;
+        }
     }
 
     &__list {
@@ -160,10 +164,10 @@
             @media (hover: hover) {
                 gap: 56px;
             }
-        }
 
-        &--is-active {
-            transform: translateX(-100%);
+            &--is-active {
+                transform: translateX(-100%);
+            }
         }
     }
 

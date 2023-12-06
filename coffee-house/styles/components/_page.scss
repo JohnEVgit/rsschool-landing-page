@@ -9,6 +9,12 @@
         font-family: var(--font);
         background-color: var(--background-body);
         color: var(--text-dark);
+
+        @media (max-width: 768px) {
+            &--is-fixed {
+                overflow: hidden;
+            }
+        }
     }
 
     &__header,
