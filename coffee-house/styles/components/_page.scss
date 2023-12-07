@@ -11,9 +11,13 @@
         color: var(--text-dark);
 
         @media (max-width: 768px) {
-            &--is-fixed {
+            &--is-tablet-fixed {
                 overflow: hidden;
             }
+        }
+
+        &--is-fixed {
+            overflow: hidden;
         }
     }
 

@@ -398,9 +398,12 @@ html[data-theme=dark] {
   color: var(--text-dark);
 }
 @media (max-width: 768px) {
-  .page__body--is-fixed {
+  .page__body--is-tablet-fixed {
     overflow: hidden;
   }
+}
+.page__body--is-fixed {
+  overflow: hidden;
 }
 .page__header, .page__main, .page__footer {
   width: 100%;
@@ -1181,14 +1184,12 @@ html[data-theme=dark] {
 }
 .menu__more {
   display: none;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (max-width: 768px) {
-  .menu__more {
-    margin-top: 40px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.menu__more--is-active {
+  display: flex;
 }
 
 .menu-item {
