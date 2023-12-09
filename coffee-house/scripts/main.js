@@ -77,6 +77,12 @@ const menuList = {
             description: 'Fragrant black coffee with cognac and whipped cream',
             price: 6.5,
         },
+        {
+            id: 9,
+            title: 'Coffee with cognac123',
+            description: 'Fragrant black coffee with cognac and whipped cream',
+            price: 6.5,
+        },
     ],
     tea: [
         {
@@ -91,9 +97,16 @@ const menuList = {
 const menuGridElem = bodyElem.querySelector('.menu-grid-js');
 const menuMoreButtonElem = bodyElem.querySelector('.menu-more-button-js');
 
-let menuGridCount = 0;
+let isMobile = window.innerWidth <= 768;
+
+const getMenuGridCount = () => { 
+    return isMobile ? 4 : 8
+};
+const getMenuGridStartPosition = () => menuGridCount * menuGridPage;
+
+let menuGridCount = getMenuGridCount();
 let menuGridPage = 1;
-let menuGridStartPosition = menuGridCount * menuGridPage - menuGridCount;
+let menuGridStartPosition = 0;
 
 let menuGridCategory = 'coffee';
 let menuGridLayout = '';
@@ -101,19 +114,15 @@ let menuGridLayout = '';
 let priceSize = 0;
 let priceAdditives = 0;
 
-if (window.innerWidth < 768) {
-    menuGridCount = 4;
-} else {
-    menuGridCount = 8;
-}
-
 const calcPrice = (price) => {
     return (price + priceSize + priceAdditives).toFixed(2);
 };
 
 const showMenuMoreButton = () => {
-    if (menuGridCount + menuGridStartPosition < menuList[menuGridCategory].length) {
+    if (menuGridStartPosition < menuList[menuGridCategory].length) {
         menuMoreButtonElem.classList.add('menu__more--is-active');
+    } else {
+        menuMoreButtonElem.classList.remove('menu__more--is-active');
     }
 };
 
@@ -139,12 +148,52 @@ const createMenuLayout = () => {
     }
 };
 
+const resetMenuLayout = () => {
+    menuGridCount = getMenuGridCount();
+    menuGridStartPosition = 0;
+    menuGridPage = 1;
+    menuGridLayout = '';
+    menuGridElem.innerHTML = '';
+};
+
 const addMenuLayout = () => {
     createMenuLayout();
 
     menuGridElem.innerHTML += menuGridLayout;
+    menuGridLayout = '';
 
+    menuGridStartPosition = getMenuGridStartPosition();
     showMenuMoreButton();
 };
 
 addMenuLayout();
+menuGridStartPosition = getMenuGridStartPosition();
+
+menuMoreButtonElem.addEventListener('click', () => {
+    menuGridPage += 1;
+    addMenuLayout();
+});
+
+window.addEventListener('resize', () => {
+    if (isMobile && window.innerWidth > 768) {
+        isMobile = false;
+
+        resetMenuLayout();
+        addMenuLayout();
+        console.log('Desk');
+    } else if (!isMobile && window.innerWidth <= 768) {
+        isMobile = true;
+
+        resetMenuLayout();
+        addMenuLayout();
+        console.log('Mob');
+    }
+});
+
+document.querySelectorAll(".menu-tab-js").forEach((elem) => {
+    elem.addEventListener('change', (e) => {
+        menuGridCategory = e.target.dataset.category;
+        resetMenuLayout();
+        addMenuLayout();
+    });
+});
