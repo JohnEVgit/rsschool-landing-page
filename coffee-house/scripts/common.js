@@ -49,7 +49,7 @@ headerNavToggleButtonElem.addEventListener("click", (e) => {
 headerNavListElem.addEventListener("click", (e) => {
     const thisElem = e.target;
 
-    if (thisElem.closest('.header-nav__link') || thisElem.classList.contains('')) {
+    if (thisElem.closest('.header-nav__link') || thisElem.classList.contains('.header-nav__link')) {
         bodyElem.classList.remove('page__body--is-tablet-fixed');
         headerNavElem.classList.remove('header-nav--is-active');
         headerNavListElem.classList.remove('header-nav__list--is-active');

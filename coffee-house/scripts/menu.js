@@ -227,3 +227,20 @@ bodyElem.querySelectorAll(".menu-tab-js").forEach((elem) => {
         addMenuLayout();
     });
 });
+
+const popupElem = bodyElem.querySelector('.popup');
+const popupCloseButtonElem = bodyElem.querySelector('.popup__close');
+
+menuGridElem.addEventListener("click", (e) => {
+    const thisElem = e.target;
+
+    if (thisElem.closest('.menu-item') || thisElem.classList.contains('.menu-item')) {
+        popupElem.showModal();
+        bodyElem.classList.add('page__body--is-fixed');
+    }
+});
+
+popupCloseButtonElem.addEventListener("click", () => {
+    popupElem.close();
+    bodyElem.classList.remove('page__body--is-fixed');
+});
