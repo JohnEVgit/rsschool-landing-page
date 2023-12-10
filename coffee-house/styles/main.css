@@ -352,6 +352,34 @@ html[data-theme=dark] {
   font-style: normal;
   font-display: swap;
 }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes backdrop-fade-in {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(64, 63, 61, 0.8);
+  }
+}
 *,
 ::before,
 ::after {
@@ -1278,6 +1306,7 @@ html[data-theme=dark] {
 }
 
 .popup {
+  position: fixed;
   padding: 0;
   border: none;
   background: none;
@@ -1397,34 +1426,6 @@ html[data-theme=dark] {
   line-height: 14px;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    display: none;
-  }
-  100% {
-    opacity: 1;
-    display: block;
-  }
-}
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-    display: block;
-  }
-  100% {
-    opacity: 0;
-    display: none;
-  }
-}
-@keyframes backdrop-fade-in {
-  0% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: rgba(64, 63, 61, 0.8);
-  }
-}
 .footer {
   padding-left: 40px;
   padding-right: 40px;
