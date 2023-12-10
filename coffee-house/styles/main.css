@@ -992,6 +992,7 @@ html[data-theme=dark] {
   margin-right: auto;
   max-width: 480px;
   overflow: hidden;
+  left: 0;
   transition: left 0.2s;
 }
 .slider__slides {
