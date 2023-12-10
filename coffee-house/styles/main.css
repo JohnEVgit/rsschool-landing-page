@@ -671,6 +671,7 @@ html[data-theme=dark] {
   transition: background-color 0.2s;
   background-color: var(--border-light);
   color: var(--text-dark);
+  text-transform: uppercase;
 }
 .tab__label--icon-coffee::before, .tab__label--icon-tea::before, .tab__label--icon-dessert::before {
   background-image: url("../images/tabs/menu-sprite.png");

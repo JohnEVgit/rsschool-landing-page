@@ -57,6 +57,7 @@
             transition: background-color 0.2s;
             background-color: var(--border-light);
             color: var(--text-dark);
+            text-transform: uppercase;
         }
 
         &--icon-coffee::before,
