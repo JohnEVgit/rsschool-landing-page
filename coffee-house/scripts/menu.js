@@ -291,6 +291,9 @@ const resetPopupPrice = () => {
 
 popupCloseButtonElem.addEventListener("click", () => {
     popupElem.close();
+});
+
+popupElem.addEventListener("close", () => {
     bodyElem.classList.remove('page__body--is-fixed');
 
     resetPopupPrice();
