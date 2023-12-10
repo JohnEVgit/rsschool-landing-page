@@ -81,7 +81,7 @@
             }
         }
     }
-    
+
     &--theme-icon-light {
         border: 1px solid var(--border-light);
         color: var(--text-light);
@@ -157,15 +157,16 @@
         }
 
         &#{$self}--is-active {
+
             &::before,
             &::after {
                 margin-top: 0;
             }
-    
+
             &::before {
                 transform: translate(-50%, -50%) rotate(45deg);
             }
-    
+
             &::after {
                 transform: translate(-50%, -50%) rotate(-45deg);
             }

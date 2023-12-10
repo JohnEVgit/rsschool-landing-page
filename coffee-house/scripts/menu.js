@@ -132,7 +132,7 @@ const menuMoreButtonElem = bodyElem.querySelector('.menu-more-button-js');
 
 let isMobile = window.innerWidth <= 768;
 
-const getMenuGridCount = () => { 
+const getMenuGridCount = () => {
     return isMobile ? 4 : 8
 };
 const getMenuGridStartPosition = () => menuGridCount * menuGridPage;
@@ -160,7 +160,7 @@ const showMenuMoreButton = () => {
 const createMenuLayout = () => {
     const menuCategoryList = menuList[menuGridCategory];
 
-    for (let i = menuGridStartPosition; i < menuGridCount * menuGridPage && i !== menuCategoryList.length; i++ ) {
+    for (let i = menuGridStartPosition; i < menuGridCount * menuGridPage && i !== menuCategoryList.length; i++) {
         const thisEl = menuCategoryList[i];
         menuGridLayout += `
         <div class="menu__item menu-item" data-id="${thisEl.id}" tabindex="0">
@@ -271,8 +271,8 @@ const createPopupImage = (id) => {
 
 const createPopup = (id) => {
     popupPictureElem.innerHTML = createPopupImage(id);
-    popupTitleElem.textContent =  menuList[menuGridCategory][id - 1].title;
-    popupDescriptionElem.textContent =  menuList[menuGridCategory][id - 1].description;
+    popupTitleElem.textContent = menuList[menuGridCategory][id - 1].title;
+    popupDescriptionElem.textContent = menuList[menuGridCategory][id - 1].description;
 
     popupPrice = menuList[menuGridCategory][id - 1].price;
     popupPriceElem.textContent = `$${calcPrice(popupPrice)}`;
@@ -297,7 +297,7 @@ popupCloseButtonElem.addEventListener("click", () => {
 });
 
 popupElem.addEventListener("click", (e) => {
-    if(!e.target.closest('.popup__wrapper')) {
+    if (!e.target.closest('.popup__wrapper')) {
         popupCloseButtonElem.click();
     }
 });

@@ -1,7 +1,7 @@
 .tab {
     $self: &;
 
-    &__input:checked + #{$self}__label {
+    &__input:checked+#{$self}__label {
         border: 1px solid var(--border-dark);
         background-color: var(--background-container);
         color: var(--text-light);
@@ -17,7 +17,7 @@
             border: 1px solid var(--border-dark);
             background-color: var(--background-container);
             color: var(--text-light);
-    
+
             &::before {
                 background-color: var(--background-body);
                 color: var(--text-dark);
@@ -25,11 +25,11 @@
         }
     }
 
-    &__input:not(:checked) + #{$self}__label {
+    &__input:not(:checked)+#{$self}__label {
         cursor: pointer;
     }
 
-    &__input:focus-visible + #{$self}__label {
+    &__input:focus-visible+#{$self}__label {
         outline: 2px solid var(--text-accent);
         outline-offset: 2px;
     }
@@ -73,7 +73,7 @@
         &--icon-tea::before {
             background-position: -30px 0;
         }
-        
+
         &--icon-dessert::before {
             background-position: -60px 0;
         }

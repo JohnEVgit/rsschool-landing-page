@@ -36,8 +36,8 @@ if (localStorage.getItem("colorTheme")) {
 }
 
 headerNavToggleButtonElem.addEventListener("click", (e) => {
-    window.scrollTo({top: 0});
-    
+    window.scrollTo({ top: 0 });
+
     const thisElem = e.currentTarget;
 
     thisElem.classList.toggle('button--is-active');
