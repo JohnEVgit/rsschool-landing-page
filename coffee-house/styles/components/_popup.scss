@@ -1,109 +1,165 @@
 .popup {
-    padding: 0;
-    border: none;
-    background: none;
-    width: 800px;
-    max-width: calc(100% - 80px);
-    max-height: calc(100% - 80px);
-    animation: fade-out 0.3s ease-out;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 800px;
+  max-width: calc(100% - 80px);
+  max-height: calc(100% - 80px);
+  animation: fade-out 0.3s ease-out;
+  color: var(--text-dark);
+  border-radius: 40px;
+  top: 0;
+  bottom: 0;
 
-    &[open] {
-        animation: fade-in 0.3s ease-out;
-    }
+  @media (max-width: 520px) {
+    max-width: calc(100% - 38px);
+    max-height: calc(100% - 38px);
+  }
 
-    &::backdrop {
-        animation: backdrop-fade-in 0.3s ease-out forwards;
-    }
+  &[open] {
+    animation: fade-in 0.3s ease-out;
+  }
 
-    &__wrapper {
-        padding: 16px;
-        border-radius: 40px;
-        background: var(--background-body);
-        display: flex;
-    }
+  &::backdrop {
+    background-color: rgba(64, 63, 61, 0.80);
+    animation: backdrop-fade-in 0.3s ease-out forwards;
+    cursor: pointer;
+  }
 
-    &__picture {
-        display: block;
-        border-radius: 40px;
-        overflow: hidden;
-    }
+  &__wrapper {
+    padding: 16px;
+    background: var(--background-body);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 40px;
+  }
 
-    &__img {
-        display: block;
-        width: 100%;
-        height: auto;
-        transform: scale(1.1);
-        transition: transform 0.2s;
-        border-radius: 40px;
-    }
+  &__picture {
+    display: block;
+    border-radius: 40px;
+    overflow: hidden;
+    width: 310px;
+    flex-shrink: 0;
 
-    &__info {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding-left: 20px;
+    @media (max-width: 767px) {
+      display: none;
     }
+  }
 
-    &__text {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1.1);
+    transition: transform 0.2s;
+    border-radius: 40px;
+  }
 
-    &__title {
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 30px;
-    }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    &__description {
-        min-height: 72px;
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 24px;
-    }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-    &__price {
-        margin-top: auto;
-        margin-bottom: 0;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 30px;
-    }
+  &__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+
+  &__description {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 24px;
+  }
+
+  &__label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    line-height: 24px;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: auto;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+}
+
+.popup-alert {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-top: 1px solid var(--border-light);
+
+  &__icon {
+    flex-shrink: 0;
+  }
+
+  &__text {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+  }
 }
 
 @keyframes fade-in {
-    0% {
-      opacity: 0;
-      display: none;
-    }
-  
-    100% {
-      opacity: 1;
-      display: block;
-    }
+  0% {
+    opacity: 0;
+    display: none;
   }
-  
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-      display: block;
-    }
-  
-    100% {
-      opacity: 0;
-      display: none;
-    }
+
+  100% {
+    opacity: 1;
+    display: block;
   }
-  
-  @keyframes backdrop-fade-in {
-    0% {
-      background-color: transparent;
-    }
-  
-    100% {
-        background-color: rgba(64, 63, 61, 0.80);
-    }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: block;
   }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: rgba(64, 63, 61, 0.80);
+  }
+}

@@ -144,12 +144,10 @@ let menuGridStartPosition = 0;
 let menuGridCategory = 'coffee';
 let menuGridLayout = '';
 
-let priceSize = 0;
-let priceAdditives = 0;
-
-const calcPrice = (price) => {
-    return (price + priceSize + priceAdditives).toFixed(2);
-};
+const menuSizeTabStartElem = bodyElem.querySelector('#menu-tab-coffee.menu-tab-js');
+if (!menuSizeTabStartElem.checked) {
+    menuSizeTabStartElem.checked = true;
+}
 
 const showMenuMoreButton = () => {
     if (menuGridStartPosition < menuList[menuGridCategory].length) {
@@ -165,7 +163,7 @@ const createMenuLayout = () => {
     for (let i = menuGridStartPosition; i < menuGridCount * menuGridPage && i !== menuCategoryList.length; i++ ) {
         const thisEl = menuCategoryList[i];
         menuGridLayout += `
-        <div class="menu__item menu-item" tabindex="0">
+        <div class="menu__item menu-item" data-id="${thisEl.id}" tabindex="0">
             <picture class="menu-item__picture">
                 <source srcset="images/menu/${menuGridCategory}/${menuGridCategory}-${thisEl.id}.avif 1x, images/menu/${menuGridCategory}/${menuGridCategory}-${thisEl.id}-2x.avif 2x" type="image/avif">
                 <source srcset="images/menu/${menuGridCategory}/${menuGridCategory}-${thisEl.id}.webp 1x, images/menu/${menuGridCategory}/${menuGridCategory}-${thisEl.id}-2x.webp 2x" type="image/webp">
@@ -175,7 +173,7 @@ const createMenuLayout = () => {
             <div class="menu-item__info">
                 <h3 class="menu-item__title">${thisEl.title}</h3>
                 <p class="menu-item__text">${thisEl.description}</p>
-                <p class="menu-item__price">$${calcPrice(thisEl.price)}</p>
+                <p class="menu-item__price">$${thisEl.price.toFixed(2)}</p>
             </div>
         </div>`;
     }
@@ -228,19 +226,100 @@ bodyElem.querySelectorAll(".menu-tab-js").forEach((elem) => {
     });
 });
 
-const popupElem = bodyElem.querySelector('.popup');
-const popupCloseButtonElem = bodyElem.querySelector('.popup__close');
+const showMenuPopup = (e) => {
+    const thisElem = e.target.closest('.menu-item');
 
-menuGridElem.addEventListener("click", (e) => {
-    const thisElem = e.target;
-
-    if (thisElem.closest('.menu-item') || thisElem.classList.contains('.menu-item')) {
+    if (thisElem) {
+        createPopup(thisElem.dataset.id);
         popupElem.showModal();
         bodyElem.classList.add('page__body--is-fixed');
     }
+}
+
+menuGridElem.addEventListener("click", (e) => {
+    showMenuPopup(e);
 });
+
+menuGridElem.addEventListener("keydown", (e) => {
+    if (e.code === 'Space' || e.code === 'Enter') {
+        showMenuPopup(e);
+    }
+});
+
+const popupElem = bodyElem.querySelector('.popup-js');
+const popupCloseButtonElem = bodyElem.querySelector('.close-popup-js');
+
+const popupPictureElem = bodyElem.querySelector('.popup-picture-js');
+const popupTitleElem = bodyElem.querySelector('.popup-title-js');
+const popupDescriptionElem = bodyElem.querySelector('.popup-description-js');
+const popupPriceElem = bodyElem.querySelector('.popup-price-js');
+
+let popupPrice = 0;
+let popupSizePrice = 0;
+let popupAdditivesPrice = 0;
+
+const calcPrice = (price) => {
+    return (price + popupSizePrice + popupAdditivesPrice).toFixed(2);
+};
+
+const createPopupImage = (id) => {
+    return `<source srcset="images/menu/${menuGridCategory}/${menuGridCategory}-${id}.avif 1x, images/menu/${menuGridCategory}/${menuGridCategory}-${id}-2x.avif 2x" type="image/avif">
+    <source srcset="images/menu/${menuGridCategory}/${menuGridCategory}-${id}.webp 1x, images/menu/${menuGridCategory}/${menuGridCategory}-${id}-2x.webp 2x" type="image/webp">
+    <img class="popup__img" src="images/menu/${menuGridCategory}/${menuGridCategory}-${id}.jpg" alt="Irish coffee" width="340" height="340"
+      srcset="images/menu/${menuGridCategory}/${menuGridCategory}-${id}.jpg 1x, images/menu/${menuGridCategory}/${menuGridCategory}-${id}-2x.jpg 2x">`;
+};
+
+const createPopup = (id) => {
+    popupPictureElem.innerHTML = createPopupImage(id);
+    popupTitleElem.textContent =  menuList[menuGridCategory][id - 1].title;
+    popupDescriptionElem.textContent =  menuList[menuGridCategory][id - 1].description;
+
+    popupPrice = menuList[menuGridCategory][id - 1].price;
+    popupPriceElem.textContent = `$${calcPrice(popupPrice)}`;
+};
+
+const resetPopupPrice = () => {
+    popupSizePrice = 0;
+    popupAdditivesPrice = 0;
+
+    bodyElem.querySelector('#size-tab-s.popup-tab-size-js').checked = true;
+
+    bodyElem.querySelectorAll(".popup-tab-addiives-js").forEach((elem) => {
+        elem.checked = false;
+    });
+}
 
 popupCloseButtonElem.addEventListener("click", () => {
     popupElem.close();
     bodyElem.classList.remove('page__body--is-fixed');
+
+    resetPopupPrice();
+});
+
+popupElem.addEventListener("click", (e) => {
+    if(!e.target.closest('.popup__wrapper')) {
+        popupCloseButtonElem.click();
+    }
+});
+
+bodyElem.querySelectorAll(".popup-tab-size-js").forEach((elem) => {
+    elem.addEventListener('change', (e) => {
+        thisElem = e.target;
+        popupSizePrice = +thisElem.dataset.sizePrice;
+        popupPriceElem.textContent = `$${calcPrice(popupPrice)}`;
+    });
+});
+
+bodyElem.querySelectorAll(".popup-tab-addiives-js").forEach((elem) => {
+    elem.addEventListener('change', (e) => {
+        thisElem = e.target;
+
+        if (thisElem.checked) {
+            popupAdditivesPrice += +thisElem.dataset.additivesPrice;
+        } else {
+            popupAdditivesPrice -= +thisElem.dataset.additivesPrice;
+        }
+
+        popupPriceElem.textContent = `$${calcPrice(popupPrice)}`;
+    });
 });

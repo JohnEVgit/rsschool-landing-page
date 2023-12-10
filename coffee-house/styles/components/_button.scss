@@ -48,6 +48,21 @@
         }
     }
 
+    &--theme-secondary {
+        min-height: 44px;
+        padding: 8px 24px;
+        background-color: transparent;
+        transition: background-color 0.2s, color 0.2s;
+        border: 1px solid var(--border-dark);
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--background-container);
+                color: var(--text-light);
+            }
+        }
+    }
+
     &--theme-icon-dark,
     &--theme-icon-light {
         width: var(--theme-icon-button-size);

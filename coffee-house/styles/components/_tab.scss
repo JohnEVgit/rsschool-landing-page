@@ -2,6 +2,7 @@
     $self: &;
 
     &__input:checked + #{$self}__label {
+        border: 1px solid var(--border-dark);
         background-color: var(--background-container);
         color: var(--text-light);
 
@@ -13,6 +14,7 @@
 
     @media (hover: hover) {
         &__label:hover {
+            border: 1px solid var(--border-dark);
             background-color: var(--background-container);
             color: var(--text-light);
     
@@ -41,7 +43,7 @@
         border-radius: 100px;
         font-weight: 600;
         line-height: 24px;
-        transition: background-color 0.2s, color 0.2s;
+        transition: border 0.2s, background-color 0.2s, color 0.2s;
 
         &::before {
             content: attr(data-tab);
