@@ -1,4 +1,5 @@
-const sliderSlidesElem = bodyElem.querySelector('.slider-slides-js');
+const sliderInnerElem = bodyElem.querySelector('.slider-inner-js');
+const sliderSlidesElem = sliderInnerElem.querySelector('.slider-slides-js');
 const sliderSlideElems = sliderSlidesElem.querySelectorAll('.slider-slide');
 
 const sliderButtonPrevElem = bodyElem.querySelector('.slider-button-prev-js');
@@ -60,13 +61,9 @@ const goToNextSlide = () => {
     goToSlide();
 };
 
-sliderButtonPrevElem.addEventListener("click", () => {
-    goToPrevSlide();
-});
+sliderButtonPrevElem.addEventListener("click", goToPrevSlide);
 
-sliderButtonNextElem.addEventListener("click", () => {
-    goToNextSlide();
-});
+sliderButtonNextElem.addEventListener("click", goToNextSlide);
 
 sliderSlidesElem.addEventListener("mouseover", () => {
     if (!isSliderPaused) {
@@ -79,3 +76,61 @@ sliderSlidesElem.addEventListener("mouseleave", () => {
         isSliderPaused = false;
     }
 });
+
+let xStartPosition;
+let yStartPosition;
+let slideToPrev = false;
+let slideToNext = false;
+
+const sliderTouchStartHandle = (e) => {
+    if (!isSliderPaused) {
+        isSliderPaused = true;
+    }
+    xStartPosition = e.touches[0].clientX;
+    yStartPosition = e.touches[0].clientY;
+};
+
+const sliderTouchEndHandle = () => {
+    if (isSliderPaused) {
+        isSliderPaused = false;
+    }
+    if (slideToPrev) {
+        goToPrevSlide();
+        slideToPrev = false;
+        sliderInnerElem.style.left = '0';
+    }
+    if (slideToNext) {
+        goToNextSlide();
+        slideToNext = false;
+        sliderInnerElem.style.left = '0';
+    }
+};
+
+const sliderMoveStartHandle = (e) => {
+    if (!xStartPosition || !yStartPosition) {
+        return;
+    }
+
+    let xEndPosition = e.touches[0].clientX;
+    let yEndPosition = e.touches[0].clientY;
+
+    let xDist = xStartPosition - xEndPosition;
+    let yDist = yStartPosition - yEndPosition;
+
+    if (Math.abs(xDist) > Math.abs(yDist)) {
+        if (xDist > 0) {
+            slideToNext = true;
+            sliderInnerElem.style.left = '-12px';
+        } else {
+            slideToPrev = true;
+            sliderInnerElem.style.left = '12px';
+        }
+    }
+
+    xStartPosition = null;
+    yStartPosition = null;
+};
+
+sliderSlidesElem.addEventListener("touchstart", sliderTouchStartHandle);
+sliderSlidesElem.addEventListener("touchend", sliderTouchEndHandle);
+sliderSlidesElem.addEventListener("touchmove", sliderMoveStartHandle);
