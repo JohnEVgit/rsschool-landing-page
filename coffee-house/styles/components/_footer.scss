@@ -1,0 +1,106 @@
+.footer {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @media (max-width: 767px) {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    &__wrapper {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 100px;
+        gap: 100px;
+        border-radius: 40px;
+        background-color: var(--background-container);
+        color: var(--text-light);
+
+        @media (max-width: 1024px) {
+            padding-right: 60px;
+            padding-left: 60px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 767px) {
+            padding: 60px 16px;
+            gap: 40px;
+        }    
+    }
+
+    &__col {
+        flex-basis: 50%;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    &__socials {
+        display: flex;
+        gap: 12px;
+    }
+}
+
+.footer-contacts {
+    &__title {
+        margin-top: 0;
+        margin-bottom: 40px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 30px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    &__link,
+    &__text {
+        display: flex;
+        padding-bottom: 4px;
+        gap: 8px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    &__link {
+        position: relative;
+        color: currentColor;
+        text-decoration: none;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: currentColor;
+            transition: width 0.2s, opacity 0.2s;
+            opacity: 0;
+        }
+
+        @media (hover: hover) {
+            &:hover::after {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__text {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
