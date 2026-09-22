@@ -1,0 +1,28 @@
+:root {
+    --text-dark: #403F3D;
+    --text-light: #E1D4C9;
+    --text-accent: #B0907A;
+
+    --background-body: #E1D4C9;
+    --background-container: #665F55;
+    --background-backdrop: rgba(64, 63, 61, 0.8);
+
+    --border-light: #C1B6AD;
+    --border-dark: #665F55;
+
+    --font: 'Inter', sans-serif;
+}
+
+
+html[data-theme="dark"] {
+    --text-dark: #E1D4C9;
+    --text-light: #E1D4C9;
+    --text-accent: #B0907A;
+
+    --background-body: #292826;
+    --background-container: #403F3D;
+    --background-backdrop: rgba(41, 40, 38, 0.8);
+
+    --border-light: #665F55;
+    --border-dark: #C1B6AD;
+}

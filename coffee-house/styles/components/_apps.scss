@@ -1,0 +1,49 @@
+.apps {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    }
+
+    @media (max-width: 767px) {
+        gap: 40px;
+    }  
+
+    &__info {
+        flex-basis: 50%;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        margin-top: 0;
+        margin-bottom: 40px;
+        line-height: 24px;
+    }
+
+    &__buttons {
+        margin-bottom: 1px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    &__button {
+        min-width: 200px;
+    }
+
+    &__picture {
+        flex-basis: 50%;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}

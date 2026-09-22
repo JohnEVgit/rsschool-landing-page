@@ -1,0 +1,42 @@
+.page {
+    scroll-behavior: smooth;
+
+    &__body {
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: var(--font);
+        background-color: var(--background-body);
+        color: var(--text-dark);
+    }
+
+    &__header,
+    &__main,
+    &__footer {
+        width: 100%;
+        max-width: 1440px;
+    }
+
+    &__main {
+        padding-right: 40px;
+        padding-left: 40px;
+
+        @media (max-width: 767px) {
+            padding-right: 16px;
+            padding-left: 16px;
+        }
+    }
+
+    &__hero,
+    &__slider,
+    &__about,
+    &__apps,
+    &__menu {
+        margin-bottom: 100px;
+    }
+
+    &__footer {
+        margin-top: auto;
+    }
+}

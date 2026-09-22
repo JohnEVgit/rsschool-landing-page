@@ -1,0 +1,118 @@
+.button {
+    $self: &;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+    border: none;
+
+    &--size-s {
+        --theme-icon-button-size: 44px;
+    }
+
+    &--size-m {
+        --theme-icon-button-size: 60px;
+    }
+
+    &--theme-accent {
+        min-height: 64px;
+        padding: 8px 24px;
+        background-color: var(--background-body);
+
+        #{$self}__icon {
+            margin-left: 8px;
+            width: 20px;
+        }
+
+        @media (hover: hover) {
+            #{$self}__icon {
+                margin-left: 0;
+                width: 0;
+                opacity: 0;
+                transition: opacity 0.2s, width 0.2s 0.2s, margin-left 0.2s 0.2s;
+            }
+
+            &:hover {
+                #{$self}__icon {
+                    margin-left: 8px;
+                    width: 20px;
+                    opacity: 1;
+                    transition: opacity 0.2s 0.2s, width 0.2s, margin-left 0.2s;
+                }
+            }
+        }
+    }
+
+    &--theme-icon-dark,
+    &--theme-icon-light {
+        width: var(--theme-icon-button-size);
+        height: var(--theme-icon-button-size);
+        background-color: transparent;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    &--theme-icon-dark {
+        border: 1px solid var(--border-dark);
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--background-container);
+                color: var(--text-light);
+            }
+        }
+    }
+    
+    &--theme-icon-light {
+        border: 1px solid var(--border-light);
+        color: var(--text-light);
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--background-body);
+                color: var(--text-dark);
+            }
+        }
+    }
+
+    &--theme-apps {
+        justify-content: flex-start;
+        gap: 8px;
+        min-height: 64px;
+        padding: 11px 19px;
+        background-color: var(--background-body);
+        border: 1px solid var(--border-dark);
+        text-align: left;
+        transition: background-color 0.2s, color 0.2s;
+
+        #{$self} {
+            &__info {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            &__title {
+                font-size: 10px;
+                font-weight: 600;
+                line-height: 14px;
+            }
+
+            &__text {
+                font-weight: 600;
+                line-height: 24px;
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--background-container);
+                color: var(--text-light);
+            }
+        }
+    }
+}

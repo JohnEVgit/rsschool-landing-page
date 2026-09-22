@@ -1,0 +1,45 @@
+.hero {
+    padding: 100px;
+    border-radius: 40px;
+    position: relative;
+
+    @media (max-width: 1024px) {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+    
+    @media (max-width: 767px) {
+        padding: 60px 16px;
+    }    
+    
+    &__media {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 40px;
+        object-fit: cover;
+    }
+
+    &__info {
+        max-width: 530px;
+        position: relative;
+        color: var(--text-light);
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        margin-top: 0;
+        margin-bottom: 40px;
+        line-height: 24px;
+    }
+
+    &__button {
+        min-width: 200px;
+    }
+}
