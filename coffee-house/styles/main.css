@@ -702,6 +702,11 @@ html[data-theme=dark] {
     gap: 36px;
   }
 }
+@media (max-width: 800px) {
+  .header {
+    gap: 32px;
+  }
+}
 @media (max-width: 768px) {
   .header {
     gap: 24px;
@@ -737,7 +742,7 @@ html[data-theme=dark] {
 }
 @media (max-width: 768px) {
   .header__nav {
-    position: absolute;
+    position: fixed;
     top: 100px;
     right: 0;
     bottom: 0;
@@ -776,6 +781,10 @@ html[data-theme=dark] {
 .header-theme__input:checked + .header-theme__label {
   background-color: var(--text-accent);
   color: var(--text-light);
+}
+.header-theme__input:focus-visible + .header-theme__label {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
 }
 .header-theme__label {
   width: 36px;
@@ -870,6 +879,7 @@ html[data-theme=dark] {
   .header-nav__item:last-child {
     margin-top: 40px;
     margin-left: 0;
+    padding-left: 0;
   }
 }
 .header-nav__link {
