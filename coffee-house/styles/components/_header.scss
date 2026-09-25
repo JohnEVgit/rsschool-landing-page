@@ -10,6 +10,10 @@
         gap: 36px;
     }
 
+    @media (max-width: 800px) {
+        gap: 32px;
+    }
+
     @media (max-width: 768px) {
         gap: 24px;
     }
@@ -42,7 +46,7 @@
         flex-grow: 1;
 
         @media (max-width: 768px) {
-            position: absolute;
+            position: fixed;
             top: 100px;
             right: 0;
             bottom: 0;
@@ -91,6 +95,11 @@
         }
     }
 
+    &__input:focus-visible+#{$self}__label {
+        outline: 2px solid var(--text-accent);
+        outline-offset: 2px;
+    }
+
     &__label {
         width: 36px;
         height: 36px;
@@ -116,6 +125,10 @@
         visibility: hidden;
         transition: visibility 0.3s;
         transition-property: visibility;
+
+        &--is-active {
+            visibility: visible;
+        }
     }
 
     &__list {
@@ -130,6 +143,10 @@
         gap: 40px;
 
         @media (max-width: 1024px) {
+            gap: 32px;
+        }
+
+        @media (max-width: 800px) {
             gap: 32px;
         }
 
@@ -152,10 +169,10 @@
             @media (hover: hover) {
                 gap: 56px;
             }
-        }
 
-        &--is-active {
-            transform: translateX(-100%);
+            &--is-active {
+                transform: translateX(-100%);
+            }
         }
     }
 
@@ -173,10 +190,11 @@
             &:first-child {
                 margin-left: 0;
             }
-    
+
             &:last-child {
                 margin-top: 40px;
                 margin-left: 0;
+                padding-left: 0;
             }
         }
     }

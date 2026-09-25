@@ -28,7 +28,7 @@
         @media (max-width: 767px) {
             padding: 60px 16px;
             gap: 40px;
-        }    
+        }
     }
 
     &__col {
@@ -75,7 +75,7 @@
         position: relative;
         color: currentColor;
         text-decoration: none;
-        
+
         &::after {
             content: '';
             position: absolute;
