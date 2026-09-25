@@ -39,7 +39,7 @@
         @media (max-width: 768px) {
             flex-basis: calc(50% - 20px);
         }
-        
+
         @media (max-width: 480px) {
             flex-basis: 100%;
         }
@@ -47,12 +47,12 @@
 
     &__more {
         display: none;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
 
-        @media (max-width: 768px) {
-            margin-top: 40px;
+        &--is-active {
             display: flex;
-            margin-left: auto;
-            margin-right: auto;
         }
     }
 }

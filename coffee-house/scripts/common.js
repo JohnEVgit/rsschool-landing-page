@@ -1,15 +1,23 @@
 "use strict";
 
 const htmlElem = document.documentElement;
-const bodyElem = htmlElem.querySelector('.body-js');
-const headerThemeInputElems = bodyElem.querySelectorAll('.header-theme-input-js');
+const bodyElem = document.querySelector(".body-js");
+const headerNavElem = bodyElem.querySelector(".header-nav-js");
+const headerNavListElem = bodyElem.querySelector(".header-nav-list-js");
+const headerNavToggleButtonElem = bodyElem.querySelector(
+  ".header-nav-toggle-button-js",
+);
+
+const headerThemeInputElems = bodyElem.querySelectorAll(
+  ".header-theme-input-js",
+);
 let colorTheme;
 
 headerThemeInputElems.forEach((elem) => {
-    elem.addEventListener('change', (e) => {
-        colorTheme = e.target.dataset.theme;
-        updateColorTheme();
-    });
+  elem.addEventListener("change", (e) => {
+    colorTheme = e.target.dataset.theme;
+    updateColorTheme();
+  });
 });
 
 const updateColorTheme = () => {
@@ -30,3 +38,35 @@ if (localStorage.getItem("colorTheme")) {
   updateColorTheme();
   setHeaderThemeInputTheme();
 }
+
+headerNavToggleButtonElem.addEventListener("click", (e) => {
+  window.scrollTo({ top: 0 });
+
+  const thisElem = e.currentTarget;
+
+  thisElem.classList.toggle("button--is-active");
+  bodyElem.classList.toggle("page__body--is-tablet-fixed");
+  headerNavElem.classList.toggle("header-nav--is-active");
+  headerNavListElem.classList.toggle("header-nav__list--is-active");
+});
+
+const closeHeaderNav = () => {
+  bodyElem.classList.remove("page__body--is-tablet-fixed");
+  headerNavElem.classList.remove("header-nav--is-active");
+  headerNavListElem.classList.remove("header-nav__list--is-active");
+  headerNavToggleButtonElem.classList.remove("button--is-active");
+}
+
+headerNavListElem.addEventListener("click", (e) => {
+  const thisElem = e.target;
+
+  if (thisElem.closest(".header-nav__link")) {
+    closeHeaderNav();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeHeaderNav();
+  }
+});
